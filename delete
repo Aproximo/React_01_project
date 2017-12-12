@@ -1,0 +1,9 @@
+// <Provider store={store}>
+//     <Router
+// history={browserHistory}
+// routes={routes}/>
+// </Provider>,
+
+
+ onClick={this.handleStartTimer.bind(this)}>
+     {this.props.time} second<button
