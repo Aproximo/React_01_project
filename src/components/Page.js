@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from "react-redux";
 import { bindActionCreators } from 'redux'
 
-import { PauseClick } from "../actions/PageActions";
+import { PauseClick, StartClick } from "../actions/PageActions";
 
 class Page extends Component {
     constructor(props) {
@@ -22,9 +22,9 @@ class Page extends Component {
         clearInterval(this.state.timer);
         this.setState({timer: undefined});
     }
-    tick() {
-        let elapsed = Date.now() - this.state.start + this.state.diff;
-        this.setState({elapsed: elapsed});
+    tick(item) {
+        let elapsed = Date.now() - this.state.start + item.diff;
+        this.props.onStartClick(item.id, elapsed);
     }
     getTimeSpan(elapsed) { // 754567(ms) -> "12:34.567"
         let h = String(Math.floor(elapsed/1000/60/60)+100).substring(1);
@@ -35,14 +35,16 @@ class Page extends Component {
         return h+":"+m+":"+s;
     }
 
-    onClick(id) {
-        if(!this.state.isStart) { // start
-            let timer = setInterval(this.tick, 33);
+    onClick(id, item) {
+
+        if(!item.isStart) { // start
+            let timer = setInterval(()=>this.tick(item), 33);
             this.setState({
                 isStart: true,
                 timer: timer,
                 start: new Date(),
             });
+            this.props.onStartClick(id);
         } else { // pause
             clearInterval(this.state.timer);
             this.props.onPauseClick(id, this.state.elapsed);
@@ -57,10 +59,10 @@ class Page extends Component {
       let tasks =  this.props.page.map(item => {
        return (
            <tr key={item.id}>
-               <td><button onClick={() => this.onClick(item.id)} style={style.button}>
-                   {this.state.isStart ? "pause" : "start"}
+               <td><button onClick={() => this.onClick(item.id, item)} style={style.button}>
+                   {item.isStart ? "pause" : "start"}
                </button></td>
-               <td><h1>{this.getTimeSpan(this.state.elapsed)}</h1></td>
+               <td><h1>{this.getTimeSpan(item.diff)}</h1></td>
                <td>{item.taskName}</td>
                <td>{item.entries}</td>
                <td className = 'hide'>{item.taskBody}</td>
@@ -90,7 +92,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onPauseClick: bindActionCreators(PauseClick, dispatch)
+    onPauseClick: bindActionCreators(PauseClick, dispatch),
+    onStartClick: bindActionCreators(StartClick, dispatch)
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Page);

@@ -1,6 +1,7 @@
 import {
     STOP_TIMER,
-    ADD_TASK
+    ADD_TASK,
+    START_TIMER
 } from '../constants/Page'
 
 
@@ -10,6 +11,16 @@ export function PauseClick(id, elapsed) {
             type: STOP_TIMER,
             id: id,
             diff: elapsed,
+        });
+    };
+}
+
+export function StartClick(id, elepsed = 0){
+    return (dispatch) => {
+        dispatch({
+            type: START_TIMER,
+            id: id,
+            diff: elepsed
         });
     };
 }

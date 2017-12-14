@@ -1,6 +1,7 @@
 import {
     STOP_TIMER,
-    ADD_TASK
+    ADD_TASK,
+    START_TIMER
 } from '../constants/Page'
 
 const initialState = [
@@ -56,11 +57,19 @@ export default function page(state = initialState, action) {
                 task.id === action.id ?
                     {
                         ...task,
-                        text: action.text,
                         timer: undefined,
                         isStart: false,
                         diff: action.diff,
                         entries: task.entries++
+                    } :
+                    task
+            );
+        case START_TIMER:
+            return state.map(task =>
+                task.id === action.id ?
+                    {
+                        ...task,
+                        isStart: true,
                     } :
                     task
             )
