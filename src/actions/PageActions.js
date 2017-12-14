@@ -1,14 +1,27 @@
 import {
-    SHOW_TASK_BODY
+    STOP_TIMER,
+    ADD_TASK
 } from '../constants/Page'
 
-export function ShowTask(year) {
 
+export function PauseClick(id, elapsed) {
     return (dispatch) => {
         dispatch({
-            type: SHOW_TASK_BODY,
-            payload: true
+            type: STOP_TIMER,
+            id: id,
+            diff: elapsed,
         });
     };
+}
+
+let id =4;
+export function AddNewTask(text){
+    return (dispatch) => {
+        dispatch({
+            type: ADD_TASK,
+            payload: text,
+            id: id++
+        });
+    }
 }
 

@@ -15,19 +15,22 @@ export default class StopWatch extends Component {
 
     }
    componentWillUnmount() { // clear timer
-        clearInterval(this.state.timer);
+       clearInterval(this.state.timer);
         this.setState({timer: undefined});
     }
    tick() {
         var elapsed = Date.now() - this.state.start + this.state.diff;
         this.setState({elapsed: elapsed});
     }
-   getTimeSpan(elapsed) { // 754567(ms) -> "12:34.567"
-        var m = String(Math.floor(elapsed/1000/60)+100).substring(1);
-        var s = String(Math.floor((elapsed%(1000*60))/1000)+100).substring(1);
-        var ms = String(elapsed % 1000 + 1000).substring(1);
-        return m+":"+s+"."+ms;
+    getTimeSpan(elapsed) { // 754567(ms) -> "12:34.567"
+        let h = String(Math.floor(elapsed/1000/60/60)+100).substring(1);
+        let m = String(Math.floor(elapsed/1000/60)+100).substring(1);
+        let s = String(Math.floor((elapsed%(1000*60))/1000)+100).substring(1);
+        // let ms = String(elapsed % 1000 + 1000).substring(1);
+
+        return h+":"+m+":"+s;
     }
+
    onClick() {
         if(!this.state.isStart) { // start
             var timer = setInterval(this.tick, 33);

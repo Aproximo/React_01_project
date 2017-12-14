@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
+import {connect} from "react-redux";
+import { bindActionCreators } from 'redux'
 
-export default class Page extends Component {
+import { PauseClick } from "../actions/PageActions";
+
+class Page extends Component {
     constructor(props) {
         super(props);
-        this.state = { btn_flag: false,
+        this.state = {
             isStart: false,
             elapsed: 0,
             diff: 0,
-            };
-
+            laps: [],
+        };
         this.componentWillUnmount = this.componentWillUnmount.bind(this);
         this.tick = this.tick.bind(this);
         this.onClick = this.onClick.bind(this);
@@ -23,12 +27,15 @@ export default class Page extends Component {
         this.setState({elapsed: elapsed});
     }
     getTimeSpan(elapsed) { // 754567(ms) -> "12:34.567"
+        let h = String(Math.floor(elapsed/1000/60/60)+100).substring(1);
         let m = String(Math.floor(elapsed/1000/60)+100).substring(1);
         let s = String(Math.floor((elapsed%(1000*60))/1000)+100).substring(1);
-        let ms = String(elapsed % 1000 + 1000).substring(1);
-        return m+":"+s+"."+ms;
+        // let ms = String(elapsed % 1000 + 1000).substring(1);
+
+        return h+":"+m+":"+s;
     }
-    onClick() {
+
+    onClick(id) {
         if(!this.state.isStart) { // start
             let timer = setInterval(this.tick, 33);
             this.setState({
@@ -38,23 +45,19 @@ export default class Page extends Component {
             });
         } else { // pause
             clearInterval(this.state.timer);
-            this.setState({
-                timer: undefined,
-                isStart: false,
-                diff: this.state.elapsed,
-            });
+            this.props.onPauseClick(id, this.state.elapsed);
+            console.log(this.props.page)
+
         }
     }
-    onStartBtnClick(e) {
-        this.setState({btn_flag: true});
 
-  }
+
   render() {
 
-   let tasks =  this.props.page.map(function(item) {
+      let tasks =  this.props.page.map(item => {
        return (
            <tr key={item.id}>
-               <td><button onClick={() => this.onClick} style={style.button}>
+               <td><button onClick={() => this.onClick(item.id)} style={style.button}>
                    {this.state.isStart ? "pause" : "start"}
                </button></td>
                <td><h1>{this.getTimeSpan(this.state.elapsed)}</h1></td>
@@ -78,10 +81,21 @@ export default class Page extends Component {
                 {tasks}
             </tbody>
         </table>
-        <button onClick={this.onStartBtnClick.bind(this)}>Add Task</button>
       </div>
   }
 }
+
+const mapStateToProps = state => ({
+    page: state.page
+});
+
+const mapDispatchToProps = dispatch => ({
+    onPauseClick: bindActionCreators(PauseClick, dispatch)
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(Page);
+
+
 var style = {
     button: {
         fontSize: 20,
