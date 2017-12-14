@@ -60,7 +60,7 @@ export default function page(state = initialState, action) {
                         timer: undefined,
                         isStart: false,
                         diff: action.diff,
-                        entries: task.entries++
+                        entries: ++task.entries
                     } :
                     task
             );
@@ -69,6 +69,7 @@ export default function page(state = initialState, action) {
                 task.id === action.id ?
                     {
                         ...task,
+                        diff: action.diff,
                         isStart: true,
                     } :
                     task

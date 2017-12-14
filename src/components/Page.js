@@ -31,7 +31,6 @@ class Page extends Component {
         let m = String(Math.floor(elapsed/1000/60)+100).substring(1);
         let s = String(Math.floor((elapsed%(1000*60))/1000)+100).substring(1);
         // let ms = String(elapsed % 1000 + 1000).substring(1);
-
         return h+":"+m+":"+s;
     }
 
@@ -40,16 +39,13 @@ class Page extends Component {
         if(!item.isStart) { // start
             let timer = setInterval(()=>this.tick(item), 33);
             this.setState({
-                isStart: true,
                 timer: timer,
                 start: new Date(),
             });
             this.props.onStartClick(id);
         } else { // pause
             clearInterval(this.state.timer);
-            this.props.onPauseClick(id, this.state.elapsed);
-            console.log(this.props.page)
-
+            this.props.onPauseClick(id, item.diff);
         }
     }
 
@@ -86,10 +82,13 @@ class Page extends Component {
       </div>
   }
 }
-
-const mapStateToProps = state => ({
-    page: state.page
-});
+//
+// const mapStateToProps = state => ({
+//     page: state.page
+// });
+const mapStateToProps = (state) => {
+    return { page: state.page };
+};
 
 const mapDispatchToProps = dispatch => ({
     onPauseClick: bindActionCreators(PauseClick, dispatch),

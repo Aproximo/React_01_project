@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1a00238-4f0f-45e1-a277-92055f4f9cc1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/actions/PageActions.js" afterPath="$PROJECT_DIR$/src/actions/PageActions.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/Addtask.js" afterPath="$PROJECT_DIR$/src/components/Addtask.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change beforePath="$PROJECT_DIR$/src/components/Page.js" afterPath="$PROJECT_DIR$/src/components/Page.js" />
+      <change beforePath="$PROJECT_DIR$/src/containers/StopWatch.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
       <change beforePath="$PROJECT_DIR$/src/reducers/page.js" afterPath="$PROJECT_DIR$/src/reducers/page.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,40 +25,32 @@
       <file leaf-file-name="Page.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/constants/Page.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="24" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="24" />
+            <state relative-caret-position="51">
+              <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Addtask.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Addtask.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="66" lean-forward="false" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Page.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Page.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Page.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+            <state relative-caret-position="527">
+              <caret line="58" column="43" lean-forward="false" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+              <folding>
+                <marker date="1513258858301" expanded="true" signature="466:685" ph="{&quot;start&quot;: &quot;react-scripts start&quot;...}" />
               </folding>
             </state>
           </provider>
@@ -64,8 +59,20 @@
       <file leaf-file-name="page.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reducers/page.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="15" lean-forward="false" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+            <state relative-caret-position="493">
+              <caret line="65" column="14" lean-forward="false" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#81#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -105,24 +112,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StopWatch.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/StopWatch.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="56" column="25" lean-forward="true" selection-start-line="53" selection-start-column="16" selection-end-line="56" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -148,6 +143,7 @@
       <find>clearInterval</find>
       <find>timer</find>
       <find>addTodo</find>
+      <find>this.state</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -164,20 +160,20 @@
         <option value="$PROJECT_DIR$/src/StopWatch.js" />
         <option value="$PROJECT_DIR$/src/Stopwatch.js" />
         <option value="$PROJECT_DIR$/src/Main.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/src/store/configureStore.js" />
         <option value="$PROJECT_DIR$/src/styles/app.css" />
         <option value="$PROJECT_DIR$/../timer/src/index.js" />
-        <option value="$PROJECT_DIR$/src/containers/StopWatch.js" />
         <option value="$PROJECT_DIR$/src/components/addTask.js" />
         <option value="$PROJECT_DIR$/src/constants/Page.js" />
-        <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/containers/App.js" />
         <option value="$PROJECT_DIR$/src/components/Addtask.js" />
-        <option value="$PROJECT_DIR$/src/reducers/page.js" />
         <option value="$PROJECT_DIR$/src/actions/PageActions.js" />
+        <option value="$PROJECT_DIR$/src/containers/StopWatch.js" />
         <option value="$PROJECT_DIR$/src/components/Page.js" />
+        <option value="$PROJECT_DIR$/src/reducers/page.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/containers/App.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
       </list>
     </option>
   </component>
@@ -315,11 +311,12 @@
     <property name="node.js.selected.package.stylelint" value="" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\React\MyReact\my-app\src\containers" />
+      <recent name="C:\React\MyReact\my-app\audio" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\React\MyReact\my-app\src" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\React\MyReact\my-app\audio" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -353,12 +350,12 @@
       <workItem from="1512662613863" duration="5623000" />
       <workItem from="1512725837857" duration="688000" />
       <workItem from="1513067356789" duration="25275000" />
-      <workItem from="1513237664719" duration="14337000" />
+      <workItem from="1513237664719" duration="19364000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66122000" />
+    <option name="totallyTimeSpent" value="71149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -397,16 +394,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.js" />
     <entry file="file://$PROJECT_DIR$/src/Stopwatch.js" />
     <entry file="file://$PROJECT_DIR$/delete">
@@ -430,9 +417,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1445">
           <caret line="85" column="24" lean-forward="true" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -443,9 +428,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1683">
           <caret line="99" column="3" lean-forward="false" selection-start-line="99" selection-start-column="3" selection-end-line="99" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -456,9 +439,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1683">
           <caret line="99" column="3" lean-forward="false" selection-start-line="99" selection-start-column="3" selection-end-line="99" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -538,65 +519,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="27" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="17" selection-end-column="27" />
-          <folding>
-            <marker date="1513084124214" expanded="true" signature="499:718" ph="{&quot;start&quot;: &quot;react-scripts start&quot;...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/StopWatch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="56" column="25" lean-forward="true" selection-start-line="53" selection-start-column="16" selection-end-line="56" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/Page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="24" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/configureStore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Addtask.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
+          <caret line="19" column="66" lean-forward="false" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -610,29 +537,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/page.js">
+    <entry file="file://$PROJECT_DIR$/src/reducers/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="15" lean-forward="false" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/StopWatch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="35" column="51" lean-forward="false" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Addtask.js">
+    <entry file="file://$PROJECT_DIR$/src/store/configureStore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="66" lean-forward="false" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
+        <state relative-caret-position="119">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="65" column="14" lean-forward="false" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#81#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Page.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="527">
+          <caret line="58" column="43" lean-forward="false" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants/Page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+          <folding>
+            <marker date="1513258858301" expanded="true" signature="466:685" ph="{&quot;start&quot;: &quot;react-scripts start&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
