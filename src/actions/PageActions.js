@@ -1,7 +1,8 @@
 import {
     STOP_TIMER,
     ADD_TASK,
-    START_TIMER
+    START_TIMER,
+    DELETE_TASK
 } from '../constants/Page'
 
 
@@ -33,6 +34,15 @@ export function AddNewTask(text){
             payload: text,
             id: id++
         });
+    }
+}
+
+export function DeleteClick(key){
+    return (dispatch) => {
+        dispatch({
+            type: DELETE_TASK,
+            payload: key,
+        })
     }
 }
 

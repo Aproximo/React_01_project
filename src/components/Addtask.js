@@ -17,7 +17,7 @@ class Addtask extends Component
         return (
             <div>
                 <input type="text" ref={(input) => { this.trackInput = input }} />
-                <button onClick={this.addTrack.bind(this)}>Add task</button>
+                <button onClick={this.addTrack.bind(this)}>Add tak</button>
             </div>
         )
     }

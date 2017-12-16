@@ -1,7 +1,8 @@
 import {
     STOP_TIMER,
     ADD_TASK,
-    START_TIMER
+    START_TIMER,
+    DELETE_TASK
 } from '../constants/Page'
 
 const initialState = [
@@ -73,7 +74,10 @@ export default function page(state = initialState, action) {
                         isStart: true,
                     } :
                     task
-            )
+            );
+        case DELETE_TASK:
+            state.splice(action.payload, 1);
+              return  [...state,];
         default:
             return state;
    }
