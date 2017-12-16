@@ -8,9 +8,7 @@ import './styles/app.css'
 import configureStore from './store/configureStore'
 
 
-const store = configureStore()
-
-;
+const store = configureStore();
 
 
 
@@ -22,7 +20,7 @@ render(
     </div>
   </Provider>,
   document.getElementById('root')
-)
+);
 
 
 
