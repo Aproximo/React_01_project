@@ -2,8 +2,11 @@ import {
     STOP_TIMER,
     ADD_TASK,
     START_TIMER,
-    DELETE_TASK
+    DELETE_TASK,
+    ARRAY_MOVE,
+    DONE
 } from '../constants/Page'
+import { arrayMove } from "react-sortable-hoc";
 
 const initialState = [
     {
@@ -15,6 +18,7 @@ const initialState = [
         isStart: false,
         elapsed: 0,
         diff: 0,
+        done: false,
     },
     {
         id: 2,
@@ -25,6 +29,7 @@ const initialState = [
         isStart: false,
         elapsed: 0,
         diff: 0,
+        done: false,
     },{
         id: 3,
         taskName: 'Task 12',
@@ -34,6 +39,7 @@ const initialState = [
         isStart: false,
         elapsed: 0,
         diff: 0,
+        done: false,
     },
   ];
 
@@ -78,6 +84,19 @@ export default function page(state = initialState, action) {
         case DELETE_TASK:
             state.splice(action.payload, 1);
               return  [...state,];
+
+        case ARRAY_MOVE:
+            return arrayMove(state, action.oldIndex, action.newIndex);
+
+        case DONE:
+            return state.map(task =>
+                task.id === action.id ?
+                    {
+                        ...task,
+                        done: !task.done
+                    } :
+                    task
+            );
         default:
             return state;
    }

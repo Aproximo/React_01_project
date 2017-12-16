@@ -31,21 +31,20 @@ footer, header, hgroup, menu, nav, section {
 
 span{
   margin-right: 10px;
-  min-width: 40px;
+  width: 60px;
+}
+
+.done{
+  background-color: green;
 }
 
 
 
 .hide{
-  display: none;
+  visibility: hidden;
 }
-
-
-tr{
-
-}
-td{
-    width: 100px;
+.label{
+  margin-right: 10px;
 }
 
 body {
@@ -80,9 +79,7 @@ h3 {
 .ib {
   display: inline-block;
 }
-.page {
-  width: 80%;
-}
+
 .user {
   width: 20%;
   vertical-align: top;

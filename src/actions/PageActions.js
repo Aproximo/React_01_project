@@ -2,7 +2,9 @@ import {
     STOP_TIMER,
     ADD_TASK,
     START_TIMER,
-    DELETE_TASK
+    DELETE_TASK,
+    ARRAY_MOVE,
+    DONE
 } from '../constants/Page'
 
 
@@ -42,6 +44,26 @@ export function DeleteClick(key){
         dispatch({
             type: DELETE_TASK,
             payload: key,
+        })
+    }
+}
+
+export function ArrayMove(oldIndex, newIndex){
+    return (dispatch) => {
+        dispatch({
+            type: ARRAY_MOVE,
+            oldIndex,
+            newIndex
+
+        })
+    }
+}
+
+export function taskDone(id){
+    return (dispatch) => {
+        dispatch ({
+            type: DONE,
+            id: id,
         })
     }
 }

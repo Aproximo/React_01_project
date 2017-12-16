@@ -9,14 +9,19 @@ import { AddNewTask } from '../actions/PageActions'
 class Addtask extends Component
 {
     addTrack() {
-        this.props.onAddTrack(this.trackInput.value);
-        this.trackInput.value = '';
+        let text = document.getElementById("taskName");
+        if (text.value.trim()) {
+            this.props.onAddTrack(this.trackInput.value);
+            this.trackInput.value = '';
+        } else {
+            alert("empty task name");
+        }
     }
 
     render(){
         return (
             <div>
-                <input type="text" ref={(input) => { this.trackInput = input }} />
+                <input type="text" ref={(input) => { this.trackInput = input }} id={"taskName"} />
                 <button onClick={this.addTrack.bind(this)}>Add tak</button>
             </div>
         )

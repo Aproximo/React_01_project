@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import {connect} from "react-redux";
 import { bindActionCreators } from 'redux';
 
-import { PauseClick, StartClick, DeleteClick } from "../actions/PageActions";
-import {arrayMove, SortableContainer, SortableElement} from "react-sortable-hoc";
+import { PauseClick, StartClick, DeleteClick, ArrayMove, taskDone } from "../actions/PageActions";
+import {SortableContainer, SortableElement} from "react-sortable-hoc";
 
 
 const SortableItem = SortableElement(({value}) =>
@@ -27,13 +27,11 @@ class Page extends Component {
         this.state = {
             active: false,
             isStart: false,
-            elapsed: 0,
-            diff: 0,
-            laps: [],
         };
         this.componentWillUnmount = this.componentWillUnmount.bind(this);
         this.tick = this.tick.bind(this);
         this.onClick = this.onClick.bind(this);
+        this.checkboxClick = this.checkboxClick.bind(this);
 
     }
 
@@ -73,9 +71,13 @@ class Page extends Component {
     }
 
     onSortEnd = ({oldIndex, newIndex}) => {
-        this.setState({
-            items: arrayMove(this.props.page, oldIndex, newIndex),
-        });
+        this.props.onArrayMove(oldIndex, newIndex)
+        // this.setState({
+        //     items: arrayMove(this.props.page, oldIndex, newIndex),
+        // });
+    };
+    checkboxClick = (id, v) => {
+        this.props.onSetDone(id);
     };
 
   render() {
@@ -84,17 +86,21 @@ class Page extends Component {
       var tasks =  this.props.page.map((item, index) => {
        return (
 
-               <span><button onClick={() => this.onClick(item.id, item)} style={style.button} disabled={this.state.active && !item.isStart ? "true" : ""}>
+               <span className={+item.done ? "done" : "pag"}>
+                   <button onClick={() => this.onClick(item.id, item)} style={style.button} disabled={(this.state.active && !item.isStart) ? "true" : ""} className={item.done ? "hide" : ""}>
                    {item.isStart ? "pause" : "start"}
-               </button>
-               <span>{this.getTimeSpan(item.diff)}</span>
+                   </button>
+                   <span>{this.getTimeSpan(item.diff)}</span>
                    <span>{item.taskName}</span>
                    <span>{item.entries}</span>
-                   <button onClick={() => this.props.onDeleteClick(index)}>delete</button></span>
+                   <input id={index+"_cb"} type="checkbox" onClick={() => this.checkboxClick(item.id, item.done)}/>
+                   <label className="label" htmlFor="cb">done</label>
+                   <button onClick={() => this.props.onDeleteClick(index)}>delete</button>
+               </span>
 
        )
    });
-    return <div className='ib page'>
+    return <div>
         <SortableList items={tasks} onSortEnd={this.onSortEnd} />
       </div>
   }
@@ -108,6 +114,8 @@ const mapDispatchToProps = dispatch => ({
     onPauseClick: bindActionCreators(PauseClick, dispatch),
     onStartClick: bindActionCreators(StartClick, dispatch),
     onDeleteClick: bindActionCreators(DeleteClick, dispatch),
+    onArrayMove: bindActionCreators(ArrayMove, dispatch),
+    onSetDone: bindActionCreators(taskDone, dispatch),
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Page);
