@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import Page from '../components/Page'
-import Addtask from '../components/Addtask'
+import Page from '../components/Page';
+import Addtask from '../components/Addtask';
 
 
 class App extends Component {

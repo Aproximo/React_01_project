@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {connect} from "react-redux";
 import { bindActionCreators } from 'redux';
 
-import { PauseClick, StartClick, DeleteClick, ArrayMove, taskDone } from "../actions/PageActions";
+import { PauseClick, StartClick, DeleteClick, ArrayMove, taskDone, Tick } from "../actions/PageActions";
 import {SortableContainer, SortableElement} from "react-sortable-hoc";
 
 
@@ -24,10 +24,7 @@ const SortableList = SortableContainer(({items}) => {
 class Page extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            active: false,
-            isStart: false,
-        };
+        this.state = {};
         this.componentWillUnmount = this.componentWillUnmount.bind(this);
         this.tick = this.tick.bind(this);
         this.onClick = this.onClick.bind(this);
@@ -37,24 +34,25 @@ class Page extends Component {
 
     componentWillUnmount() { // clear timer
         clearInterval(this.state.timer);
-        this.setState({timer: undefined});
+        this.setState({timer: null});
     }
     tick(item) {
         let elapsed = Date.now() - this.state.start + item.diff;
-        this.props.onStartClick(item.id, elapsed);
+        this.props.onTickClick(item.id, elapsed);
     }
-    getTimeSpan(elapsed) { 
+
+    getTimeSpan(elapsed) {
         let h = String(Math.floor(elapsed/1000/60/60)+100).substring(1);
         let m = String(Math.floor(elapsed/1000/60)+100).substring(1);
         let s = String(Math.floor((elapsed%(1000*60))/1000)+100).substring(1);
 
         return h+":"+m+":"+s;
-    }
+    };
 
     onClick(id, item) {
 
         if(!item.isStart) { // start
-            let timer = setInterval(()=>this.tick(item), 33);
+            let timer = setInterval(()=>this.tick(item), 1000);
             this.setState({
                 timer: timer,
                 start: new Date(),
@@ -68,22 +66,32 @@ class Page extends Component {
                 active: false
             });
         }
-    }
+    };
 
     onSortEnd = ({oldIndex, newIndex}) => {
-        this.props.onArrayMove(oldIndex, newIndex)
-        // this.setState({
-        //     items: arrayMove(this.props.page, oldIndex, newIndex),
-        // });
+        this.props.onArrayMove(oldIndex, newIndex);
     };
-    checkboxClick = (id, v) => {
-        this.props.onSetDone(id);
+
+    checkboxClick = item => {
+        clearInterval(this.state.timer);
+        this.props.onPauseClick(item.id, item.diff);
+        this.setState({
+            active: false
+        });
+        this.props.onSetDone(item.id);
+    };
+    deleteClick = (index, item) => {
+        clearInterval(this.state.timer);
+        this.setState({
+            active: false
+        });
+        this.props.onDeleteClick(index);
     };
 
   render() {
 
 
-      var tasks =  this.props.page.map((item, index) => {
+      let tasks =  this.props.page.map((item, index) => {
        return (
 
                <span className={+item.done ? "done" : "pag"}>
@@ -93,9 +101,9 @@ class Page extends Component {
                    <span>{this.getTimeSpan(item.diff)}</span>
                    <span>{item.taskName}</span>
                    <span>{item.entries}</span>
-                   <input id={index+"_cb"} type="checkbox" onClick={() => this.checkboxClick(item.id, item.done)}/>
-                   <label className="label" htmlFor="cb">done</label>
-                   <button onClick={() => this.props.onDeleteClick(index)}>delete</button>
+                   <input id={index+"_cb"} type="checkbox" onClick={() => this.checkboxClick(item)}/>
+                   <label className="label" htmlFor="cb" >done</label>
+                   <button onClick={() => this.deleteClick(index, item)}>delete</button>
                </span>
 
        )
@@ -116,12 +124,13 @@ const mapDispatchToProps = dispatch => ({
     onDeleteClick: bindActionCreators(DeleteClick, dispatch),
     onArrayMove: bindActionCreators(ArrayMove, dispatch),
     onSetDone: bindActionCreators(taskDone, dispatch),
+    onTickClick: bindActionCreators(Tick, dispatch),
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Page);
 
 
-var style = {
+let style = {
     button: {
         fontSize: 20,
         height: 44,

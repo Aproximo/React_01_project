@@ -1,16 +1,15 @@
-import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-import { AddNewTask } from '../actions/PageActions'
+import { AddNewTask } from '../actions/PageActions';
 
 
 
 class Addtask extends Component
 {
     addTrack() {
-        let text = document.getElementById("taskName");
-        if (text.value.trim()) {
+        if (this.trackInput.value.trim()) {
             this.props.onAddTrack(this.trackInput.value);
             this.trackInput.value = '';
         } else {
@@ -21,8 +20,8 @@ class Addtask extends Component
     render(){
         return (
             <div>
-                <input type="text" ref={(input) => { this.trackInput = input }} id={"taskName"} />
-                <button onClick={this.addTrack.bind(this)}>Add tak</button>
+                <input type="text" ref={(input) => { this.trackInput = input }} />
+                <button onClick={this.addTrack.bind(this)}>Add task</button>
             </div>
         )
     }

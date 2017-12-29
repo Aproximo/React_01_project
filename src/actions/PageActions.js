@@ -4,8 +4,9 @@ import {
     START_TIMER,
     DELETE_TASK,
     ARRAY_MOVE,
-    DONE
-} from '../constants/Page'
+    DONE,
+    TICK
+} from '../constants/Page';
 
 
 export function PauseClick(id, elapsed) {
@@ -18,10 +19,19 @@ export function PauseClick(id, elapsed) {
     };
 }
 
-export function StartClick(id, elepsed = 0){
+export function StartClick(id){
     return (dispatch) => {
         dispatch({
             type: START_TIMER,
+            id: id,
+        });
+    };
+}
+
+export function Tick(id, elepsed = 0){
+    return (dispatch) => {
+        dispatch({
+            type: TICK,
             id: id,
             diff: elepsed
         });
@@ -36,7 +46,7 @@ export function AddNewTask(text){
             payload: text,
             id: id++
         });
-    }
+    };
 }
 
 export function DeleteClick(key){
@@ -44,8 +54,8 @@ export function DeleteClick(key){
         dispatch({
             type: DELETE_TASK,
             payload: key,
-        })
-    }
+        });
+    };
 }
 
 export function ArrayMove(oldIndex, newIndex){
@@ -55,8 +65,8 @@ export function ArrayMove(oldIndex, newIndex){
             oldIndex,
             newIndex
 
-        })
-    }
+        });
+    };
 }
 
 export function taskDone(id){
@@ -64,7 +74,7 @@ export function taskDone(id){
         dispatch ({
             type: DONE,
             id: id,
-        })
-    }
+        });
+    };
 }
 
